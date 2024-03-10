@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wonderful Meshlands Studios</title>
+    <style>
+        #draggableSection {
+            width: 200px;
+            height: 100px;
+            background: #333;
+            color: white;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: move; /* Indica que se puede mover */
+            position: absolute; /* Necesario para moverse por la página */
+        }
+
+        /* Agrega estilos adicionales para tus secciones y elementos aquí */
+    </style>
 </head>
 <body>
     <header>
@@ -17,7 +31,7 @@
     </nav>
     <section id="seccion1">
         <h2>Sección 1</h2>
-        <p>Este es el contenido de la Sección 1.</p>
+        <div id="draggableSection" draggable="true">Arrástrame</div>
     </section>
     <section id="seccion2">
         <h2>Sección 2</h2>
@@ -26,5 +40,31 @@
     <footer>
         <p>Derechos de autor © 2024 Tu Nombre.</p>
     </footer>
+
+    <script>
+        // Obtiene el elemento que quieres hacer arrastrable
+        const draggableSection = document.getElementById('draggableSection');
+
+        draggableSection.addEventListener('dragstart', function(event) {
+            // Guarda el id del elemento para transferirlo en el drop
+            event.dataTransfer.setData("text/plain", event.target.id);
+        });
+
+        document.body.addEventListener('dragover', function(event) {
+            event.preventDefault(); // Permite soltar el elemento
+        });
+
+        document.body.addEventListener('drop', function(event) {
+            event.preventDefault(); // Evita la acción por defecto
+
+            // Obtiene los datos, que es el id del elemento arrastrado
+            const data = event.dataTransfer.getData("text");
+            const draggableElement = document.getElementById(data);
+
+            // Mueve el elemento a la posición del cursor
+            draggableElement.style.left = event.clientX + 'px';
+            draggableElement.style.top = event.clientY + 'px';
+        });
+    </script>
 </body>
 </html>
