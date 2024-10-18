@@ -1,70 +1,225 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wonderful Meshlands Studios</title>
-    <style>
-        #draggableSection {
-            width: 200px;
-            height: 100px;
-            background: #333;
-            color: white;
-            border-radius: 5px;
-            padding: 10px;
-            cursor: move; /* Indica que se puede mover */
-            position: absolute; /* Necesario para moverse por la página */
-        }
-
-        /* Agrega estilos adicionales para tus secciones y elementos aquí */
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WonderfulMeshlandsStudios</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: #0d0d0d;
+      color: #e0e0e0;
+    }
+    header {
+      background: #0d47a1;
+      color: #fff;
+      padding: 150px 0px 100px 0px;
+      text-align: center;
+      background-image: url('img/Fullwide_city.png');
+      background-size: 120% 100%;
+      background-position: center;
+      position: relative;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    header h1, header p, .logo {
+      position: relative;
+      z-index: 1;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 4px #000;
+    }
+    header p {
+      margin: 10px 0 0;
+      font-size: 1.2rem;
+      text-shadow: 2px 2px 4px #000;
+    }
+    section {
+      padding: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #90caf9;
+    }
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+    }
+    .project {
+      background: #1a1a1a;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      overflow: hidden;
+      width: calc(50% - 10px);
+      margin-bottom: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+    .project:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 183, 255, 0.502);
+    }
+    .project img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: opacity 0.3s;
+    }
+    .project:hover img {
+      opacity: 0.8;
+    }
+    .project-content {
+      padding: 20px;
+    }
+    .project h3 {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+    .contact {
+      text-align: center;
+      background: #0d47a1;
+      color: #fff;
+      padding: 40px 20px;
+      border-radius: 8px;
+      background-image: url('img/Palm.png');
+      background-size: cover;
+      background-position: center;
+    }
+    .contact p {
+      font-size: 1.2rem;
+    }
+    .contact a {
+      color: #4690ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #333;
+      color: #fff;
+    }
+    footer div a {
+      color: #90caf9;
+      margin: 0 10px;
+      font-size: 1.5rem;
+    }
+    .logo {
+      display: block;
+      margin: 20px auto;
+      width: 200px;
+      animation: logo-glow 2s infinite alternate;
+    }
+    @keyframes logo-glow {
+      0% {
+        filter: drop-shadow(0 0 20px #90caf9);
+      }
+      100% {
+        filter: drop-shadow(0 0 25px #90caf9);
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Wonderful Meshlands Studios</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="#seccion1">Sección 1</a></li>
-            <li><a href="#seccion2">Sección 2</a></li>
-        </ul>
-    </nav>
-    <section id="seccion1">
-        <h2>Sección 1</h2>
-        <div id="draggableSection" draggable="true">Arrástrame</div>
-    </section>
-    <section id="seccion2">
-        <h2>Sección 2</h2>
-        <p>Este es el contenido de la Sección 2.</p>
-    </section>
-    <footer>
-        <p>Derechos de autor © 2024 Tu Nombre.</p>
-    </footer>
+  <header>
+    <img src="img/Logo_full.png" alt="WonderfulMeshlandsStudios Logo" class="logo">
+    <h1>Bienvenido a Wonderful Meshlands Studios</h1>
+    <p>Desarrollamos experiencias únicas a través de videojuegos innovadores y apasionantes.</p>
+  </header>
+  
+  <section>
+    <h2>Sobre Nosotros</h2>
+    <p>En Wonderful Meshlands Studios nos dedicamos a la creación de videojuegos con una fuerte atención al detalle y una visión enfocada en ofrecer experiencias entretenidas e inolvidables para nuestros jugadores. Creemos en la pasión, creatividad y en la importancia de cada historia que contamos.</p>
+  </section>
+  
+  <section>
+    <h2>Nuestros Proyectos</h2>
+    <div class="projects">
+      <div class="project">
+        <img src="img/projs/prj4.png" alt="Proyecto 4 - Prj4">
+        <div class="project-content">
+          <h3>Orbtric</h3>
+          <p>Una joven hacker actúa como justiciera anónima en el ciberespacio de su ciudad natal. Un día, este ciberespacio se ve comprometido por un ataque masivo de virus, y junto a su antivirus esférico y eléctrico, llamado Orbtric, deberán luchar para restaurar la paz en el mundo digital y detener la amenaza.</p>
+        </div>
+      </div>
+      <div class="project">
+        <img src="img/projs/prj5.png" alt="Proyecto 5 - Prj5">
+        <div class="project-content">
+          <h3>NONSENSO</h3>
+          <p>Boomer shooter sin sentido inspirado en Nichijou y Shikanoko Nokonoko Koshitantan</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Obtiene el elemento que quieres hacer arrastrable
-        const draggableSection = document.getElementById('draggableSection');
+  <section>
+    <h2>Nuestros Proyectos - Modding</h2>
+    <div class="projects">
+      <div class="project">
+        <img src="img/projs/prj1.png" alt="Proyecto 1 - Prj1">
+        <div class="project-content">
+          <h3>Prodoomer</h3>
+          <p>Prodoomer es un mod desafiante de Doom donde sigues a Van "Dash" Sanderson, un soldado que usa tecnología avanzada para enfrentar una invasión demoníaca y descubrir un complot liderado por el dios del planeta Infernus.</p>
+        </div>
+      </div>
+      <div class="project">
+        <img src="img/projs/prj2.png" alt="Proyecto 2 - Prj2">
+        <div class="project-content">
+          <h3>Deathnament 1</h3>
+          <p>Pack de mapas deathmatch/LMS para zandronum y skulltag</p>
+        </div>
+      </div>
+      <div class="project">
+        <img src="img/projs/prj3.png" alt="Proyecto 3 - Prj3">
+        <div class="project-content">
+          <h3>Deathnament 2</h3>
+          <p>Otra secuela mas de pack de mapas deathmatch/LMS para zandronum y skulltag</p>
+        </div>
+      </div>
 
-        draggableSection.addEventListener('dragstart', function(event) {
-            // Guarda el id del elemento para transferirlo en el drop
-            event.dataTransfer.setData("text/plain", event.target.id);
-        });
+    </div>
+  </section>
 
-        document.body.addEventListener('dragover', function(event) {
-            event.preventDefault(); // Permite soltar el elemento
-        });
+  <section class="contact">
+    <h2>Contáctanos</h2>
+    <p>Si tienes alguna pregunta o te gustaría colaborar con nosotros, no dudes en escribirnos a <a href="mailto:correo@wonderfulmeshlandsstudios.com">correo@wonderfulmeshlandsstudios.com</a></p>
+  </section>
 
-        document.body.addEventListener('drop', function(event) {
-            event.preventDefault(); // Evita la acción por defecto
-
-            // Obtiene los datos, que es el id del elemento arrastrado
-            const data = event.dataTransfer.getData("text");
-            const draggableElement = document.getElementById(data);
-
-            // Mueve el elemento a la posición del cursor
-            draggableElement.style.left = event.clientX + 'px';
-            draggableElement.style.top = event.clientY + 'px';
-        });
-    </script>
+  <footer>
+    <p>&copy; 2024 Wonderful Meshlands Studios. Todos los derechos reservados.</p>
+    <div>
+      <a href="https://www.twitter.com" target="_blank" aria-label="Twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+  </footer>
 </body>
 </html>
