@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WonderfulMeshlandsStudios</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
+    /* Estilos internos */
     body {
       font-family: 'Roboto', sans-serif;
       line-height: 1.6;
@@ -21,10 +22,10 @@
     header {
       background: #0d47a1;
       color: #fff;
-      padding: 150px 0px 100px 0px;
+      padding: 100px 20px;
       text-align: center;
       background-image: url('img/Fullwide_city.png');
-      background-size: 120% 100%;
+      background-size: cover;
       background-position: center;
       position: relative;
     }
@@ -35,24 +36,39 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 0;
     }
     header h1, header p, .logo {
       position: relative;
       z-index: 1;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      text-shadow: 2px 2px 4px #000;
+    .language-selector {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 2;
     }
-    header p {
-      margin: 10px 0 0;
-      font-size: 1.2rem;
-      text-shadow: 2px 2px 4px #000;
+    .language-selector button {
+      background: linear-gradient(45deg, #3b6e8f, #00c6ff);
+      color: white;
+      border: 2px solid #90caf9;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.5s, transform 0.3s, box-shadow 0.3s;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 15px rgba(0, 183, 255, 0.6);
+    }
+    .language-selector button:hover {
+      transform: scale(1.1);
+      background: linear-gradient(45deg, #00c6ff, #3b6e8f);
+      box-shadow: 0 8px 20px rgba(0, 183, 255, 0.8);
     }
     section {
-      padding: 40px;
+      padding: 40px 20px;
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -69,13 +85,12 @@
     }
     .project {
       background: #1a1a1a;
+      cursor: pointer;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
       overflow: hidden;
       width: calc(50% - 10px);
-      margin-bottom: 20px;
       transition: transform 0.3s, box-shadow 0.3s;
-      position: relative;
     }
     .project:hover {
       transform: scale(1.05);
@@ -144,64 +159,66 @@
 </head>
 <body>
   <header>
+    <div class="language-selector">
+      <button onclick="changeLanguage('en')">EN</button>
+      <button onclick="changeLanguage('es')">ES</button>
+    </div>
     <img src="img/Logo_full.png" alt="WonderfulMeshlandsStudios Logo" class="logo">
-    <h1>Bienvenido a Wonderful Meshlands Studios</h1>
-    <p>Desarrollamos experiencias únicas a través de videojuegos innovadores y apasionantes.</p>
+    <h1 id="header-title">Welcome to Wonderful Meshlands Studios</h1>
+    <p id="header-subtitle">We develop unique experiences through innovative and passionate video games.</p>
   </header>
   
   <section>
-    <h2>Sobre Nosotros</h2>
-    <p>En Wonderful Meshlands Studios nos dedicamos a la creación de videojuegos con una fuerte atención al detalle y una visión enfocada en ofrecer experiencias entretenidas e inolvidables para nuestros jugadores. Creemos en la pasión, creatividad y en la importancia de cada historia que contamos.</p>
+    <h2 id="about-title">About Us</h2>
+    <p id="about-text">At Wonderful Meshlands Studios, we create video games with a strong attention to detail and a focus on delivering entertaining and unforgettable experiences for our players. We believe in passion, creativity, and the importance of every story we tell.</p>
   </section>
   
   <section>
-    <h2>Nuestros Proyectos</h2>
+    <h2 id="projects-title">Our Projects</h2>
     <div class="projects">
       <div class="project">
-        <img src="img/projs/prj4.png" alt="">
         <div class="project-content">
-          <h3>Proximamente...</h3>
-          <p>Proximamente...</p>
+          <h3 id="project-upcoming">Coming Soon...</h3>
+          <p id="project-upcoming-desc">Coming Soon...</p>
         </div>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>Nuestros Proyectos - Modding</h2>
+    <h2 id="modding-projects-title">Our Projects - Modding</h2>
     <div class="projects">
-      <div class="project">
-        <img src="img/projs/prj1.png" alt="Proyecto 1 - Prj1">
+      <div class="project" onclick="window.open('https://www.moddb.com/mods/prodoomer-v3', '_blank')">
+        <img src="img/projs/prj1.png" alt="Project 1 - Prj1">
         <div class="project-content">
-          <h3>Prodoomer</h3>
-          <p>Prodoomer es un mod desafiante de Doom donde sigues a Van "Dash" Sanderson, un soldado que usa tecnología avanzada para enfrentar una invasión demoníaca y descubrir un complot liderado por el dios del planeta Infernus.</p>
+          <h3 id="modding-proj1-title">Prodoomer</h3>
+          <p id="modding-proj1-desc">Prodoomer is a challenging Doom mod where you follow Van "Dash" Sanderson, a soldier using advanced technology to face a demonic invasion and uncover a conspiracy led by the god of the planet Infernus.</p>
         </div>
       </div>
-      <div class="project">
-        <img src="img/projs/prj2.png" alt="Proyecto 2 - Prj2">
+      <div class="project" onclick="window.open('https://zandronum.com/forum/viewtopic.php?f=58&t=6286', '_blank')">
+        <img src="img/projs/prj2.png" alt="Project 2 - Prj2">
         <div class="project-content">
-          <h3>Deathnament 1</h3>
-          <p>Pack de mapas deathmatch/LMS para zandronum y skulltag</p>
+          <h3 id="modding-proj2-title">Deathnament 1</h3>
+          <p id="modding-proj2-desc">Deathmatch/LMS map pack for Zandronum and Skulltag.</p>
         </div>
       </div>
-      <div class="project">
-        <img src="img/projs/prj3.png" alt="Proyecto 3 - Prj3">
+      <div class="project" onclick="window.open('https://zandronum.com/forum/viewtopic.php?f=58&t=6286', '_blank')">
+        <img src="img/projs/prj3.png" alt="Project 3 - Prj3">
         <div class="project-content">
-          <h3>Deathnament 2</h3>
-          <p>Otra secuela mas de pack de mapas deathmatch/LMS para zandronum y skulltag</p>
+          <h3 id="modding-proj3-title">Deathnament 2</h3>
+          <p id="modding-proj3-desc">Another sequel of the deathmatch/LMS map pack for Zandronum and Skulltag.</p>
         </div>
       </div>
-
     </div>
   </section>
 
   <section class="contact">
-    <h2>Contáctanos</h2>
-    <p>Si tienes alguna pregunta o te gustaría colaborar con nosotros, no dudes en escribirnos a [pagina en construccion]</a></p>
+    <h2 id="contact-title">Contact Us</h2>
+    <p id="contact-text">If you have any questions or would like to collaborate with us, don't hesitate to reach out at [page under construction]</p>
   </section>
 
   <footer>
-    <p>&copy; 2024 Wonderful Meshlands Studios. Todos los derechos reservados.</p>
+    <p>&copy; 2024 Wonderful Meshlands Studios. All rights reserved.</p>
     <div>
       <a href="https://www.facebook.com/people/Wonderful-Meshlands-Studios/61550519730370/" target="_blank" aria-label="Facebook">
         <i class="fab fa-facebook"></i>
@@ -209,7 +226,70 @@
       <a href="https://www.instagram.com/wonderful_meshlands_studios/" target="_blank" aria-label="Instagram">
         <i class="fab fa-instagram"></i>
       </a>
+      <a href="https://x.com/WonderMeshlands" target="_blank" aria-label="Twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
     </div>
   </footer>
+
+  <script>
+    const translations = {
+      es: {
+        headerTitle: "Bienvenido a Wonderful Meshlands Studios",
+        headerSubtitle: "Desarrollamos experiencias únicas a través de videojuegos innovadores y apasionantes.",
+        aboutTitle: "Sobre Nosotros",
+        aboutText: "En Wonderful Meshlands Studios nos dedicamos a la creación de videojuegos con una fuerte atención al detalle y una visión enfocada en ofrecer experiencias entretenidas e inolvidables para nuestros jugadores. Creemos en la pasión, creatividad y en la importancia de cada historia que contamos.",
+        projectsTitle: "Nuestros Proyectos",
+        projectUpcoming: "Próximamente...",
+        projectUpcomingDesc: "Próximamente...",
+        moddingProjectsTitle: "Nuestros Proyectos - Modding",
+        moddingProj1Title: "Prodoomer",
+        moddingProj1Desc: "Prodoomer es un mod desafiante de Doom donde sigues a Van 'Dash' Sanderson, un soldado que usa tecnología avanzada para enfrentar una invasión demoníaca y descubrir un complot liderado por el dios del planeta Infernus.",
+        moddingProj2Title: "Deathnament 1",
+        moddingProj2Desc: "Pack de mapas deathmatch/LMS para zandronum y skulltag.",
+        moddingProj3Title: "Deathnament 2",
+        moddingProj3Desc: "Otra secuela más de pack de mapas deathmatch/LMS para zandronum y skulltag",
+        contactTitle: "Contáctanos",
+        contactText: "Si tienes alguna pregunta o te gustaría colaborar con nosotros, no dudes en escribirnos a [página en construcción]",
+      },
+      en: {
+        headerTitle: "Welcome to Wonderful Meshlands Studios",
+        headerSubtitle: "We develop unique experiences through innovative and passionate video games.",
+        aboutTitle: "About Us",
+        aboutText: "At Wonderful Meshlands Studios, we create video games with a strong attention to detail and a focus on delivering entertaining and unforgettable experiences for our players. We believe in passion, creativity, and the importance of every story we tell.",
+        projectsTitle: "Our Projects",
+        projectUpcoming: "Coming Soon...",
+        projectUpcomingDesc: "Coming Soon...",
+        moddingProjectsTitle: "Our Projects - Modding",
+        moddingProj1Title: "Prodoomer",
+        moddingProj1Desc: "Prodoomer is a challenging Doom mod where you follow Van 'Dash' Sanderson, a soldier using advanced technology to face a demonic invasion and uncover a conspiracy led by the god of the planet Infernus.",
+        moddingProj2Title: "Deathnament 1",
+        moddingProj2Desc: "Deathmatch/LMS map pack for Zandronum and Skulltag.",
+        moddingProj3Title: "Deathnament 2",
+        moddingProj3Desc: "Another sequel of the deathmatch/LMS map pack for Zandronum and Skulltag.",
+        contactTitle: "Contact Us",
+        contactText: "If you have any questions or would like to collaborate with us, don't hesitate to reach out at [page under construction]",
+      }
+    };
+
+    function changeLanguage(lang) {
+      document.getElementById('header-title').textContent = translations[lang].headerTitle;
+      document.getElementById('header-subtitle').textContent = translations[lang].headerSubtitle;
+      document.getElementById('about-title').textContent = translations[lang].aboutTitle;
+      document.getElementById('about-text').textContent = translations[lang].aboutText;
+      document.getElementById('projects-title').textContent = translations[lang].projectsTitle;
+      document.getElementById('project-upcoming').textContent = translations[lang].projectUpcoming;
+      document.getElementById('project-upcoming-desc').textContent = translations[lang].projectUpcomingDesc;
+      document.getElementById('modding-projects-title').textContent = translations[lang].moddingProjectsTitle;
+      document.getElementById('modding-proj1-title').textContent = translations[lang].moddingProj1Title;
+      document.getElementById('modding-proj1-desc').textContent = translations[lang].moddingProj1Desc;
+      document.getElementById('modding-proj2-title').textContent = translations[lang].moddingProj2Title;
+      document.getElementById('modding-proj2-desc').textContent = translations[lang].moddingProj2Desc;
+      document.getElementById('modding-proj3-title').textContent = translations[lang].moddingProj3Title;
+      document.getElementById('modding-proj3-desc').textContent = translations[lang].moddingProj3Desc;
+      document.getElementById('contact-title').textContent = translations[lang].contactTitle;
+      document.getElementById('contact-text').textContent = translations[lang].contactText;
+    }
+  </script>
 </body>
 </html>
